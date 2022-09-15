@@ -15,4 +15,6 @@ int main()
 
   cout<<"a= "<< a;
   cout<<"b= "<<b;
+
+  system("pause"); //I put this here bc Visual Studio keeps closing the terminal immediately. -Paolo
 }
