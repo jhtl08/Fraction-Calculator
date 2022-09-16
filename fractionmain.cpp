@@ -1,3 +1,8 @@
+//fractionmain.cpp
+//Kyle Coloma, Jason Lorenzo, Paolo Ong
+//ENGG 31-N
+//September 15, 2022
+
 #include <iostream>
 #include "fractionclass.h"
 

@@ -1,3 +1,8 @@
+//fractionclass.h
+//Kyle Coloma, Jason Lorenzo, Paolo Ong
+//ENGG 31-N
+//September 15, 2022
+
 #ifndef FRACTIONCLASS_H
 #define FRACTIONCLASS_H
 
