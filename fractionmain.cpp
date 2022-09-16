@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
   Fraction a = Fraction();
-  Fraction b = Fraction(1,2);
+  Fraction b = Fraction(2,4);
 
   cout<<"a= "<< a;
   cout<<"b= "<<b;

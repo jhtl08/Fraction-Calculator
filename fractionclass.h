@@ -22,7 +22,8 @@ class Fraction
     Fraction(int num, int den);
     
     //overloading the insertion operator
-    friend std::ostream& operator<<(std::ostream& output, const Fraction& fractionOutput);
+    friend std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput);
+
 };
 
 #endif
