@@ -12,13 +12,22 @@ int main()
 {
   Fraction a = Fraction(1000,500);
   Fraction b = Fraction(2,4);
+  Fraction fSum, fDifference, fProduct, fQuotient; //f for fraction
 
-  cout<<"a= "<< a;
-  cout<<"b= "<<b;
+  cout<<"a= "<<a<<endl;
+  cout<<"b= "<<b<<endl;
 
-  cout << "a + b = " << a + b << endl;
-  cout << "a - b = " << a - b << endl;
+  fSum=a+b;
+  cout<<"a + b = "<<fSum<<endl;
 
+  fDifference=a-b;
+  cout<<"a - b = "<<fDifference<<endl;
 
-  system("pause"); //I put this here bc Visual Studio keeps closing the terminal immediately. -Paolo
+  fProduct=a*b;
+  cout<<"a * b = "<<fProduct<<endl;
+
+  fQuotient=a/b;
+  cout<<"a / b = "<<fQuotient<<endl;
+
+  system("pause");
 }

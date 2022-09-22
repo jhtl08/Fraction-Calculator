@@ -21,11 +21,20 @@ class Fraction
     //non-empty constructor
     Fraction(int num, int den);
 
+    //Overloading assignment operator=
+    Fraction& operator=(const Fraction& resultFraction);
+
     //overloading the + operator
-    Fraction operator+(Fraction secondFraction);
+    Fraction operator+(Fraction& secondFraction);
 
     //overloading the - operator
-    Fraction operator-(Fraction secondFraction);
+    Fraction operator-(Fraction& secondFraction);
+
+    //overloading the * operator
+    Fraction operator*(const Fraction& secondFraction);
+
+    //overloading the / operator
+    Fraction operator/(const Fraction& secondFraction)const;
     
     //overloading the insertion operator
     friend std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput);

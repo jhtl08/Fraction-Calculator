@@ -18,7 +18,14 @@ Fraction::Fraction(int num, int den)
       denominator = den;
     }
 
-Fraction Fraction::operator+(Fraction secondFraction)
+Fraction& Fraction::operator=(const Fraction& resultFraction)
+{
+  numerator = resultFraction.numerator;
+  denominator = resultFraction.denominator;
+  return *this;
+}
+
+Fraction Fraction::operator+(Fraction& secondFraction)
 {
     Fraction sum;
     if (numerator == secondFraction.numerator) //both denominators are equal
@@ -40,7 +47,7 @@ Fraction Fraction::operator+(Fraction secondFraction)
     return sum;
 }
 
-Fraction Fraction::operator-(Fraction secondFraction)
+Fraction Fraction::operator-(Fraction& secondFraction)
 {
     Fraction difference;
     if (numerator == secondFraction.numerator) //both denominators are equal
@@ -62,18 +69,39 @@ Fraction Fraction::operator-(Fraction secondFraction)
     return difference;
 }
 
+Fraction Fraction::operator*(const Fraction& secondFraction)
+{
+  Fraction product;
+  product.numerator=numerator*secondFraction.numerator;
+  product.denominator=denominator*secondFraction.denominator;
+  std::cout<<"num prod: "<<product.numerator<<std::endl;
+  std::cout<<"den prod: "<<product.denominator<<std::endl;
+  return product;
+}
+
+Fraction Fraction::operator/(const Fraction& secondFraction) const
+{
+  Fraction quotient;
+  quotient.numerator=numerator*secondFraction.denominator;
+  quotient.denominator=denominator*secondFraction.numerator;
+  return quotient;
+}
+
 std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput)
 {
     int gcf;
     int x = fractionOutput.numerator;
     int y = fractionOutput.denominator;
-    if (y == 0) //checks first if denominator is equal to 0. if yes, immediately return undefined value. if not, proceed as follows.
+
+    if (y == 0) //checks first if denominator is equal to 0. if yes,
+    //immediately return undefined value. if not, proceed as follows.
     {
-        output << "undefined" << std::endl;
+        output << "undefined";
     }
     else
     {
-        while (y != 0) //simplification process: 1.) get GCF 2.) divide fraction by GCF
+        while (y != 0) //simplification process: 1.) get GCF 2.) 
+        //divide fraction by GCF
         {
             gcf = y;
             y = x % y;
@@ -83,12 +111,13 @@ std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput)
         fractionOutput.denominator = fractionOutput.denominator / x;
 
         if (fractionOutput.denominator == 1)
-        { // special outcome for if denominator is equal to 1, in which case it can just be expressed as a whole number
-            output << fractionOutput.numerator << std::endl;
+        { // special outcome for if denominator is equal to 1, in 
+          //which case it can just be expressed as a whole number
+            output << fractionOutput.numerator;
         }
         else
         {
-            output << fractionOutput.numerator << "/" << fractionOutput.denominator << std::endl;
+            output << fractionOutput.numerator << "/" << fractionOutput.denominator;
         }
     }
     return output;
