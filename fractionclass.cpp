@@ -28,11 +28,12 @@ Fraction& Fraction::operator=(const Fraction& resultFraction)
 Fraction Fraction::operator+(const Fraction& secondFraction)const
 {
     Fraction sum;
-    if (numerator == secondFraction.numerator) 
+
+    if (denominator == secondFraction.denominator) 
     //both denominators are equal
     {
         sum.numerator = numerator + secondFraction.numerator;
-        sum.denominator = numerator;
+        sum.denominator = denominator;
     }
     else //both are not equal
     {   
@@ -47,11 +48,11 @@ Fraction Fraction::operator+(const Fraction& secondFraction)const
 Fraction Fraction::operator-(const Fraction& secondFraction)const
 {
     Fraction difference;
-    if (numerator == secondFraction.numerator) 
+    if (denominator == secondFraction.denominator) 
     //both denominators are equal
     {
         difference.numerator = numerator - secondFraction.numerator;
-        difference.denominator = numerator;
+        difference.denominator = denominator;
     }
     else //both are not equal
     {
@@ -103,6 +104,7 @@ fractionOutput)
         }
         fractionOutput.numerator = fractionOutput.numerator / x;
         fractionOutput.denominator = fractionOutput.denominator / x;
+
 
         if (fractionOutput.denominator == 1)
         { // special outcome for if denominator is equal to 1, in 

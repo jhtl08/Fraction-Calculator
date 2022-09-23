@@ -10,21 +10,21 @@ using namespace std;
 
 int main()
 {
-  Fraction a = Fraction(1000,500);
-  Fraction b = Fraction(2,4);
+  Fraction a = Fraction(49,1001);
+  Fraction b = Fraction(100,50);
   Fraction fSum, fDifference, fProduct, fQuotient; //f for fraction
 
   cout<<"a= "<<a<<endl;
   cout<<"b= "<<b<<endl;
 
   fSum=a+b;
-  cout<<"a + b = "<<fSum<<endl;
+  cout<<"a + b = "<<fSum << "\t";
 
   fDifference=a-b;
   cout<<"a - b = "<<fDifference<<endl;
 
   fProduct=a*b;
-  cout<<"a * b = "<<fProduct<<endl;
+  cout<<"a * b = "<<fProduct<<"\t";
 
   fQuotient=a/b;
   cout<<"a / b = "<<fQuotient<<endl;
