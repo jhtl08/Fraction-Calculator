@@ -25,57 +25,50 @@ Fraction& Fraction::operator=(const Fraction& resultFraction)
   return *this;
 }
 
-Fraction Fraction::operator+(Fraction& secondFraction)
+Fraction Fraction::operator+(const Fraction& secondFraction)const
 {
     Fraction sum;
-    if (numerator == secondFraction.numerator) //both denominators are equal
+    if (numerator == secondFraction.numerator) 
+    //both denominators are equal
     {
         sum.numerator = numerator + secondFraction.numerator;
         sum.denominator = numerator;
     }
     else //both are not equal
-    {
-        numerator *= secondFraction.denominator;
-        secondFraction.numerator *= denominator;
+    {   
+        sum.numerator = numerator*secondFraction.denominator + 
+        secondFraction.numerator*denominator;
 
-        denominator *= secondFraction.denominator;
-        
-        sum.numerator = numerator + secondFraction.numerator;
-        sum.denominator = denominator;
-
+        sum.denominator = denominator*secondFraction.denominator;
     }
     return sum;
 }
 
-Fraction Fraction::operator-(Fraction& secondFraction)
+Fraction Fraction::operator-(const Fraction& secondFraction)const
 {
     Fraction difference;
-    if (numerator == secondFraction.numerator) //both denominators are equal
+    if (numerator == secondFraction.numerator) 
+    //both denominators are equal
     {
         difference.numerator = numerator - secondFraction.numerator;
         difference.denominator = numerator;
     }
     else //both are not equal
     {
-        numerator *= secondFraction.denominator;
-        secondFraction.numerator *= denominator;
+        difference.numerator = numerator*secondFraction.denominator
+        - secondFraction.numerator*denominator;
 
-        denominator *= secondFraction.denominator;
-
-        difference.numerator = numerator - secondFraction.numerator;
-        difference.denominator = denominator;
-
+        difference.denominator = denominator*
+        secondFraction.denominator;
     }
     return difference;
 }
 
-Fraction Fraction::operator*(const Fraction& secondFraction)
+Fraction Fraction::operator*(const Fraction& secondFraction) const
 {
   Fraction product;
   product.numerator=numerator*secondFraction.numerator;
   product.denominator=denominator*secondFraction.denominator;
-  std::cout<<"num prod: "<<product.numerator<<std::endl;
-  std::cout<<"den prod: "<<product.denominator<<std::endl;
   return product;
 }
 
@@ -87,7 +80,8 @@ Fraction Fraction::operator/(const Fraction& secondFraction) const
   return quotient;
 }
 
-std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput)
+std::ostream& operator<<(std::ostream& output, Fraction& 
+fractionOutput)
 {
     int gcf;
     int x = fractionOutput.numerator;
@@ -117,7 +111,8 @@ std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput)
         }
         else
         {
-            output << fractionOutput.numerator << "/" << fractionOutput.denominator;
+            output << fractionOutput.numerator << "/" << 
+            fractionOutput.denominator;
         }
     }
     return output;

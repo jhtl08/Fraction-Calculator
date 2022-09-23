@@ -25,19 +25,20 @@ class Fraction
     Fraction& operator=(const Fraction& resultFraction);
 
     //overloading the + operator
-    Fraction operator+(Fraction& secondFraction);
+    Fraction operator+(const Fraction& secondFraction)const;
 
     //overloading the - operator
-    Fraction operator-(Fraction& secondFraction);
+    Fraction operator-(const Fraction& secondFraction)const;
 
     //overloading the * operator
-    Fraction operator*(const Fraction& secondFraction);
+    Fraction operator*(const Fraction& secondFraction)const;
 
     //overloading the / operator
     Fraction operator/(const Fraction& secondFraction)const;
     
     //overloading the insertion operator
-    friend std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput);
+    friend std::ostream& operator<<(std::ostream& output, 
+    Fraction& fractionOutput);
 
 };
 
