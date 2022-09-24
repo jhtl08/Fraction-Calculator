@@ -32,7 +32,6 @@ while(true)
 
   cout<<"a + b = "<<fSum << "   " << "a - b = "<<fDifference<< "   " << "a * b = "<<fProduct<< "   " << "a / b = "<<fQuotient<< "   ";
 
-
   cout <<"\n> ";
   cin >> userInput; // ask for which variable the new value will be inserted
 

@@ -49,17 +49,17 @@ class Fraction
     std::string get_variable()
     {
         return variable;
-    }
+    };
 
     int get_num()
     {
         return in_num;
-    }
+    };
 
     int get_den()
     {
         return in_den;
-    }
+    };
 
   };
 

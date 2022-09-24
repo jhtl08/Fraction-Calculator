@@ -127,7 +127,9 @@ char separ;
     in >> f.variable >> f.in_num;
     in.get(separ);
     if (separ != '/')
-      in.setstate(std::ios::failbit);
+    {
+        in.setstate(std::ios::failbit);
+    }
     in >> f.in_den;
 
     return in;
