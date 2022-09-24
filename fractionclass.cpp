@@ -10,6 +10,8 @@ Fraction::Fraction()
     {
       numerator = 0;
       denominator = 0;
+      in_num = 0;
+      in_den = 1;  
     }
 
 Fraction::Fraction(int num, int den)
@@ -29,16 +31,15 @@ Fraction Fraction::operator+(const Fraction& secondFraction)const
 {
     Fraction sum;
 
-    if (denominator == secondFraction.denominator) 
+    if (denominator == secondFraction.denominator)
     //both denominators are equal
     {
         sum.numerator = numerator + secondFraction.numerator;
         sum.denominator = denominator;
     }
     else //both are not equal
-    {   
-        sum.numerator = numerator*secondFraction.denominator + 
-        secondFraction.numerator*denominator;
+    {
+        sum.numerator = numerator*secondFraction.denominator + secondFraction.numerator*denominator;
 
         sum.denominator = denominator*secondFraction.denominator;
     }
@@ -48,7 +49,7 @@ Fraction Fraction::operator+(const Fraction& secondFraction)const
 Fraction Fraction::operator-(const Fraction& secondFraction)const
 {
     Fraction difference;
-    if (denominator == secondFraction.denominator) 
+    if (denominator == secondFraction.denominator)
     //both denominators are equal
     {
         difference.numerator = numerator - secondFraction.numerator;
@@ -81,8 +82,7 @@ Fraction Fraction::operator/(const Fraction& secondFraction) const
   return quotient;
 }
 
-std::ostream& operator<<(std::ostream& output, Fraction& 
-fractionOutput)
+std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput)
 {
     int gcf;
     int x = fractionOutput.numerator;
@@ -95,7 +95,7 @@ fractionOutput)
     }
     else
     {
-        while (y != 0) //simplification process: 1.) get GCF 2.) 
+        while (y != 0) //simplification process: 1.) get GCF 2.)
         //divide fraction by GCF
         {
             gcf = y;
@@ -107,15 +107,28 @@ fractionOutput)
 
 
         if (fractionOutput.denominator == 1)
-        { // special outcome for if denominator is equal to 1, in 
+        { // special outcome for if denominator is equal to 1, in
           //which case it can just be expressed as a whole number
             output << fractionOutput.numerator;
         }
         else
         {
-            output << fractionOutput.numerator << "/" << 
+            output << fractionOutput.numerator << "/" <<
             fractionOutput.denominator;
         }
     }
     return output;
+}
+
+std::istream& operator>>(std::istream& in, Fraction& f)
+{
+char separ;
+
+    in >> f.variable >> f.in_num;
+    in.get(separ);
+    if (separ != '/')
+      in.setstate(std::ios::failbit);
+    in >> f.in_den;
+
+    return in;
 }
