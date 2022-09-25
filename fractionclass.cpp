@@ -1,24 +1,21 @@
 //fractionclass.cpp
 //Kyle Coloma, Jason Lorenzo, Paolo Ong
 //ENGG 31-N
-//September 15, 2022
+//September 26, 2022
 
-#include <iostream>
 #include "fractionclass.h"
 
 Fraction::Fraction()
-    {
-      numerator = 0;
-      denominator = 0;
-      in_num = 0;
-      in_den = 1;  
-    }
+  {
+    numerator = 0;
+    denominator = 1;
+  }
 
 Fraction::Fraction(int num, int den)
-    {
-      numerator = num;
-      denominator = den;
-    }
+  {
+    numerator = num;
+    denominator = den;
+  }
 
 Fraction& Fraction::operator=(const Fraction& resultFraction)
 {
@@ -29,41 +26,42 @@ Fraction& Fraction::operator=(const Fraction& resultFraction)
 
 Fraction Fraction::operator+(const Fraction& secondFraction)const
 {
-    Fraction sum;
+  Fraction sum;
 
-    if (denominator == secondFraction.denominator)
-    //both denominators are equal
-    {
-        sum.numerator = numerator + secondFraction.numerator;
-        sum.denominator = denominator;
-    }
-    else //both are not equal
-    {
-        sum.numerator = numerator*secondFraction.denominator + secondFraction.numerator*denominator;
+  if (denominator == secondFraction.denominator)
+  //both denominators are equal
+  {
+    sum.numerator = numerator + secondFraction.numerator;
+    sum.denominator = denominator;
+  }
+  else //both are not equal
+  {
+    sum.numerator = numerator*secondFraction.denominator + 
+    secondFraction.numerator*denominator;
 
-        sum.denominator = denominator*secondFraction.denominator;
-    }
-    return sum;
+    sum.denominator = denominator*secondFraction.denominator;
+  }
+  return sum;
 }
 
 Fraction Fraction::operator-(const Fraction& secondFraction)const
 {
-    Fraction difference;
-    if (denominator == secondFraction.denominator)
-    //both denominators are equal
-    {
-        difference.numerator = numerator - secondFraction.numerator;
-        difference.denominator = denominator;
-    }
-    else //both are not equal
-    {
-        difference.numerator = numerator*secondFraction.denominator
-        - secondFraction.numerator*denominator;
+  Fraction difference;
+  if (denominator == secondFraction.denominator)
+  //both denominators are equal
+  {
+    difference.numerator = numerator - secondFraction.numerator;
+    difference.denominator = denominator;
+  }
+  else //both are not equal
+  {
+    difference.numerator = numerator*secondFraction.denominator
+    - secondFraction.numerator*denominator;
 
-        difference.denominator = denominator*
-        secondFraction.denominator;
-    }
-    return difference;
+    difference.denominator = denominator*
+    secondFraction.denominator;
+  }
+  return difference;
 }
 
 Fraction Fraction::operator*(const Fraction& secondFraction) const
@@ -82,55 +80,66 @@ Fraction Fraction::operator/(const Fraction& secondFraction) const
   return quotient;
 }
 
-std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput)
+std::ostream& operator<<(std::ostream& output, Fraction& 
+fractionOutput)
 {
-    int gcf;
-    int x = fractionOutput.numerator;
-    int y = fractionOutput.denominator;
+  int gcf;
+  int x = fractionOutput.numerator;
+  int y = fractionOutput.denominator;
 
-    if (y == 0) //checks first if denominator is equal to 0. if yes,
-    //immediately return undefined value. if not, proceed as follows.
-    {
-        output << "undefined";
+  if (y == 0) //checks first if denominator is equal to 0. if yes,
+  //immediately return undefined value. if not, proceed as follows.
+  {
+    output << "undefined";
+  }
+  else
+  {
+    while (y != 0) //simplification process: 1.) get GCF 2.)
+    //divide fraction by GCF
+  {
+    gcf = y;
+    y = x % y;
+    x = gcf;
+  }
+    fractionOutput.numerator = fractionOutput.numerator / x;
+    fractionOutput.denominator = fractionOutput.denominator / x;
+
+    if (fractionOutput.denominator == 1)
+    { // special outcome for if denominator is equal to 1, in
+      //which case it can just be expressed as a whole number
+      output << fractionOutput.numerator;
     }
     else
     {
-        while (y != 0) //simplification process: 1.) get GCF 2.)
-        //divide fraction by GCF
-        {
-            gcf = y;
-            y = x % y;
-            x = gcf;
-        }
-        fractionOutput.numerator = fractionOutput.numerator / x;
-        fractionOutput.denominator = fractionOutput.denominator / x;
-
-
-        if (fractionOutput.denominator == 1)
-        { // special outcome for if denominator is equal to 1, in
-          //which case it can just be expressed as a whole number
-            output << fractionOutput.numerator;
-        }
-        else
-        {
-            output << fractionOutput.numerator << "/" <<
-            fractionOutput.denominator;
-        }
+      output << fractionOutput.numerator << "/" <<
+      fractionOutput.denominator;
     }
-    return output;
+    }
+  return output;
 }
 
-std::istream& operator>>(std::istream& in, Fraction& f)
+int* operator>>(std::istream& input, Fraction& fractionInput)
 {
-char separ;
+  char equalSign;
+  char vinculum;
+  int *fractionAttributes = new int(2);
 
-    in >> f.variable >> f.in_num;
-    in.get(separ);
-    if (separ != '/')
-    {
-        in.setstate(std::ios::failbit);
-    }
-    in >> f.in_den;
+  //parses contents of istream
+  input >> equalSign >> fractionInput.numerator;
 
-    return in;
+  //checks if istream input still has contents
+  if (input.peek()=='/')
+  {
+    input >> vinculum >> fractionInput.denominator;
+  }
+  //if it doesn't, ends extraction and makes fraction whole
+  else
+  {
+    fractionInput.denominator=1;
+  }
+
+  //returns an array of the fraction's attributes
+  fractionAttributes[0]=fractionInput.numerator;
+  fractionAttributes[1]=fractionInput.denominator;
+  return fractionAttributes;
 }
