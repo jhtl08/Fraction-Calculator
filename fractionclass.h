@@ -50,7 +50,7 @@ class Fraction
 
     //access which input variable is to have a new
     //value, relies on the user input
-    std::string get_variable_or_end();
+    std::string get_inputVariable();
 
     //stores the input numerator and denominator in an array
     //which the frctionmain.cpp can access to the updated

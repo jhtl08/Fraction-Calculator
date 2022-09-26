@@ -58,20 +58,20 @@ int main()
     fInput = userInput.fractionAttributes();
 
     //user wants to stop using the fraction calculator
-    if (userInput.get_variable_or_end() == "stop")
+    if (userInput.get_inputVariable() == "stop")
     {
       break;
     }
-    if (userInput.get_variable_or_end() == "a" 
-    || userInput.get_variable_or_end() == "b")
+    if (userInput.get_inputVariable() == "a" 
+    || userInput.get_inputVariable() == "b")
     { //sets the new value to their respective variable
 
-      if (userInput.get_variable_or_end() == "a") 
+      if (userInput.get_inputVariable() == "a") 
       { //new value for a
         a = Fraction(fInput[0], fInput[1]);
       }
 
-      if (userInput.get_variable_or_end() == "b")
+      if (userInput.get_inputVariable() == "b")
       { //new value for b
         b = Fraction(fInput[0], fInput[1]);
       }

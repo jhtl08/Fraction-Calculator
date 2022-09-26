@@ -175,7 +175,7 @@ fractionInput)
   return input;
 }
 
-std::string Fraction::get_variable_or_end()
+std::string Fraction::get_inputVariable()
 {
   return inputVariable;
 }
