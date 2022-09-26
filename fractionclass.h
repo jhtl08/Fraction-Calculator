@@ -1,28 +1,25 @@
 //fractionclass.h
 //Kyle Coloma, Jason Lorenzo, Paolo Ong
 //ENGG 31-N
-//September 15, 2022
+//September 26, 2022
 
 #ifndef FRACTIONCLASS_H
 #define FRACTIONCLASS_H
 
 #include <iostream>
-#include <string>
 
 class Fraction
 {
   private:
     //attributes of a fraction
     int numerator, denominator;
-    int in_num;
-    int in_den;
-    std::string variable;
+    std::string variable_or_end;
 
   public:
     //constructors of the class
     //empty constructor
-
     Fraction();
+
     //non-empty constructor
     Fraction(int num, int den);
 
@@ -42,25 +39,19 @@ class Fraction
     Fraction operator/(const Fraction& secondFraction)const;
 
     //overloading the insertion operator
-    friend std::ostream& operator<<(std::ostream& output, Fraction& fractionOutput);
+    friend std::ostream& operator<<(std::ostream& output, 
+    Fraction& fractionOutput);
 
-    friend std::istream& operator>>(std::istream& in, Fraction& f);
+    //overloading the extraction operator to recognize
+    //integers as valid fraction values
+    friend std::istream& operator>>(std::istream& input, 
+    Fraction& fractionInput);
 
-    std::string get_variable()
-    {
-        return variable;
-    };
+    //accessing the input variable from the private class
+    std::string get_variable_or_end();
 
-    int get_num()
-    {
-        return in_num;
-    };
-
-    int get_den()
-    {
-        return in_den;
-    };
-
+    //produces the list of input numerator and denominator
+    int* fraction();
   };
 
 #endif
