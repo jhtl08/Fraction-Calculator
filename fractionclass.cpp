@@ -145,8 +145,8 @@ fractionInput)
   input >> fractionInput.inputVariable;
   
   //checks if the user input is variable is valid or want to end
-  if (fractionInput.variable_or_end == "a" 
-  || fractionInput.variable_or_end == "b")
+  if (fractionInput.inputVariable == "a" 
+  || fractionInput.inputVariable == "b")
   { //user enters a variable
     input >> equalSign >> fractionInput.numerator;
 

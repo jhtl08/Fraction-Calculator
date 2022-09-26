@@ -15,13 +15,15 @@ int main()
   
   Fraction fSum, fDifference, fProduct, fQuotient, //f for fraction 
   userInput; //user input variable and value
-
-  cout << "\nThis is a Fraction Calculator!" << endl;
+  
+  cout << "\n----------------------------------------------" << endl;
+  cout << "        This is a Fraction Calculator!          " << endl;
   cout << "\nFormat for Input:" << endl;
   cout << "[Variable] = [Whole Number/Fraction]" << endl;
   cout << "\nExample: " << endl;
   cout << "a = 1/2 or b = 2" << endl;
-  cout << "\nType 'stop' else to stop. Enjoy!" << endl;
+  cout << "\n       Type 'stop' else to stop. Enjoy!     " << endl;
+  cout << "----------------------------------------------" << endl;
 
   int *fInput = new int(2);
 
@@ -80,6 +82,8 @@ int main()
     }
     cin.clear(); // prevent while loop from going crazy
   }
-  cout<<"\nThanks for using our Fraction Calculator!"<<endl;
+  cout << "\n----------------------------------------------" << endl;
+  cout << "  Thanks for using our Fraction Calculator!  "<<endl;
+  cout << "----------------------------------------------\n" << endl;
   return 0;
 }
