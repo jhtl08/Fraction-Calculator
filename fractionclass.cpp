@@ -139,8 +139,7 @@ fractionOutput)
 std::istream& operator>>(std::istream& input, Fraction& 
 fractionInput)
 {
-  char equalSign;
-  char vinculum;
+  char equalSign, vinculum;
 
   //parses contents of istream to recognize input as valid fraction
   input >> fractionInput.variable_or_end;
