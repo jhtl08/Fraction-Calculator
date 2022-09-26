@@ -1,5 +1,6 @@
 //fractionclass.h
-//Kyle Coloma, Jason Lorenzo, Paolo Ong
+//Members: Kyle Coloma, Jason Lorenzo, Paolo Ong
+//Project 1 Fraction Calculator
 //ENGG 31-N
 //September 26, 2022
 
@@ -47,11 +48,14 @@ class Fraction
     friend std::istream& operator>>(std::istream& input, 
     Fraction& fractionInput);
 
-    //accessing the input variable from the private class
+    //access which input variable is to have a new
+    //value, relies on the user input
     std::string get_variable_or_end();
 
-    //produces the list of input numerator and denominator
-    int* fraction();
+    //stores the input numerator and denominator in an array
+    //which the frctionmain.cpp can access to the updated
+    //numerator or denominator of a "a" or "b"
+    int* fractionAttributes();
   };
 
 #endif
