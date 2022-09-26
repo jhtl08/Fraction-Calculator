@@ -7,16 +7,16 @@
 #include "fractionclass.h"
 
 Fraction::Fraction()
-  {
-    numerator = 0; //default numerator value for "a" and "b"
-    denominator = 1; //default numerator value for "a" and "b"
-  }
+{
+  numerator = 0; //default numerator value for "a" and "b"
+  denominator = 1; //default numerator value for "a" and "b"
+}
 
 Fraction::Fraction(int num, int den)
-  {
-    numerator = num;
-    denominator = den;
-  }
+{
+  numerator = num;
+  denominator = den;
+}
 
 Fraction& Fraction::operator=(const Fraction& resultFraction)
 {
