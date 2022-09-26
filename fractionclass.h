@@ -14,7 +14,7 @@ class Fraction
   private:
     //attributes of a fraction
     int numerator, denominator;
-    std::string variable_or_end;
+    std::string inputVariable;
 
   public:
     //constructors of the class
