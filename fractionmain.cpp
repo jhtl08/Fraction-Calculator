@@ -1,3 +1,4 @@
+//fractionmain.cpp
 //Kyle Coloma, Jason Lorenzo, Paolo Ong
 //ENGG 31-N
 //September 26, 2022
@@ -15,10 +16,10 @@ int main()
   userInput; 
 
   cout <<"\nThis is a fraction calculator." << endl;
-  cout <<"Format for Input" << endl;
-  cout <<"<a or b> = <whole numeber/fraction>" << endl;
+  cout <<"Format for Input:" << endl;
+  cout <<"<a or b> = <whole number/fraction>" << endl;
   cout <<"(e.g. a = 1/2, b = 2)" << endl;
-  cout <<"Type anything else to stop. Have fun!"<<endl;
+  cout <<"Type 'stop' else to stop. Have fun!"<<endl;
 
   int *fInput = new int(2);
 
