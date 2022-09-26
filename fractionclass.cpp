@@ -142,7 +142,7 @@ fractionInput)
   char equalSign, vinculum;
 
   //parses contents of istream to recognize input as valid fraction
-  input >> fractionInput.variable_or_end;
+  input >> fractionInput.inputVariable;
   
   //checks if the user input is variable is valid or want to end
   if (fractionInput.variable_or_end == "a" 
@@ -177,7 +177,7 @@ fractionInput)
 
 std::string Fraction::get_variable_or_end()
 {
-  return variable_or_end;
+  return inputVariable;
 }
 
 int* Fraction::fractionAttributes()
