@@ -80,7 +80,7 @@ int main()
     { // Invalid Input are input that does not follow the format
       cout << "Invalid Input!" << endl;
     }
-    cin.clear(); // prevent while loop from going crazy
+    cin.clear(); // to get rid of error flags from invalid input
   }
   cout << "\n----------------------------------------------" << endl;
   cout << "  Thanks for using our Fraction Calculator!  "<<endl;
