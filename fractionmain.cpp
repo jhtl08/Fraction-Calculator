@@ -22,7 +22,7 @@ int main()
   cout << "[Variable] = [Whole Number/Fraction]" << endl;
   cout << "\nExample: " << endl;
   cout << "a = 1/2 or b = 2" << endl;
-  cout << "\n       Type 'stop' to end the program. Enjoy!     " << endl;
+  cout << "\n    Type 'stop' to end the program. Enjoy!     " << endl;
   cout << "----------------------------------------------" << endl;
 
   int *fInput = new int(2);
